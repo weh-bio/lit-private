@@ -9,7 +9,7 @@ on:
   #   types:
   #     - completed
   push:
-    branches: [ main ]
+    branches: [ dev ]
 
 jobs:
   # Only trigger, when the TESTS workflow succeeded
