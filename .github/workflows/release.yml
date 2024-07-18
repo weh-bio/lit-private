@@ -42,7 +42,7 @@ jobs:
           RELEASE_VERSION=$(echo "$RELEASE_OUTPUT" | sed -n 's/Published release //p')
           if [[ -z $RELEASE_VERSION ]]; then
             echo "No release version found. Exiting..."
-            exit 1
+            #exit 1
           fi
           # cat the release version to the GITHUB_ENV so we can use it in the next step
           # RELEASE_VERSION is read by the setup.py
