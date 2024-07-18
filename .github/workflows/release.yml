@@ -9,7 +9,7 @@ on:
   #   types:
   #     - completed
   push:
-    branches: [ dev ]
+    branches: [ main ]
 
 jobs:
   # Only trigger, when the TESTS workflow succeeded
@@ -39,7 +39,7 @@ jobs:
       - name: Get release version
         run: |
           RELEASE_OUTPUT=$(npx semantic-release)
-          RELEASE_VERSION=$(echo "$RELEASE_OUTPUT" | grep -oP 'Published release \K.*? ')
+          RELEASE_VERSION=$(echo "$RELEASE_OUTPUT" | sed -n 's/Published release //p')
           if [[ -z $RELEASE_VERSION ]]; then
             echo "No release version found. Exiting..."
             exit 1
